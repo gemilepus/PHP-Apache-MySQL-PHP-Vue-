@@ -1,6 +1,6 @@
 <?php
 include '../config.php';
-
+session_start();
 //获取前端传值-----------------------------------------------------------------------------------
 //if( !empty($_GET['searchall']) ) $searchall = $_GET['searchall']; // 首页全部查询
 if( !empty($_GET['userName']) ) $userName = $_GET['userName'];
@@ -168,6 +168,7 @@ function login($conn){
             "data"=>[]
         ),JSON_UNESCAPED_UNICODE);
 	}else{
+        $_SESSION['user_id'] = "id";
 		echo json_encode(array(
             "resultCode"=>'200',
             "message"=>"登录成功",
